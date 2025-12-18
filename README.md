@@ -1,1 +1,1 @@
-This web is a fund for project management web applications
+This website is a demo for a project management web application.
