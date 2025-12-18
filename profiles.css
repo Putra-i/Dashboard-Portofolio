@@ -1,0 +1,481 @@
+/* ===== PROFILES PAGE STYLES ===== */
+
+/* Main Container */
+.profiles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: clamp(320px, 90%, 1600px);
+    margin: auto;
+    margin-top: 32px;
+}
+
+/* ===== TEAM SECTION ===== */
+.team-section {
+    background: var(--box);
+    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Team Header */
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.team-title {
+    color: var(--text-primary);
+    /* Variable text */
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* View/Add Team Button */
+.view-team-btn,
+.add-team-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    /* Variable border */
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    color: var(--text-primary);
+    /* Variable text */
+
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-family: "PublicSans", sans-serif;
+}
+
+.view-team-btn:hover,
+.add-team-btn:hover {
+    background: var(--bg-sidebar-hover);
+    /* Variable hover */
+    border-color: var(--text-secondary);
+}
+
+.view-team-btn img,
+.add-team-btn img {
+    width: 16px;
+    height: 16px;
+    /* Icon automatically adjusts to text color (black/white) */
+    filter: brightness(0);
+    transition: filter 0.3s;
+}
+
+/* Invert icon in dark mode to make it white */
+body.dark-mode .view-team-btn img,
+body.dark-mode .add-team-btn img {
+    filter: invert(1);
+}
+
+/* Team Members Grid */
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.team-members.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+.empty-message {
+    color: var(--text-secondary);
+    /* Variable text */
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* ===== MEMBER CARD ===== */
+.member-card {
+    /* Replace hardcoded gradient with background variable */
+    background: var(--box2);
+
+    /* Or use a more subtle gradient if desired:
+       background: linear-gradient(135deg, var(--bg-body) 0%, var(--bg-sidebar-hover) 100%);
+    */
+
+    border: 1px solid var(--border-color);
+    /* Variable border */
+    border-radius: 14px;
+    padding: 28px 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Hover overlay effect safe for light/dark */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.member-card:hover {
+    border-color: var(--text-secondary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.member-card:hover::before {
+    opacity: 1;
+}
+
+/* Member Avatar */
+.member-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px;
+
+    background: var(--bg-card);
+    /* Variable */
+    border: 3px solid var(--bg-card);
+    /* Border blends with background */
+
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Member Name */
+.member-name {
+    color: var(--text-primary);
+    /* Variable */
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+}
+
+/* Member Role */
+.member-role {
+    color: var(--text-secondary);
+    /* Variable */
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Member Info */
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info-label {
+    color: var(--text-secondary);
+    /* Variable */
+    font-weight: 500;
+    min-width: 90px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    color: var(--text-primary);
+    /* Variable */
+    font-weight: 400;
+    word-break: break-word;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.social-link {
+    color: #3b82f6;
+    /* Soft shadow */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.social-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.social-link:not(:last-child)::after {
+    content: ',';
+    color: var(--text-primary);
+    /* Comma follows text color */
+    margin-right: 4px;
+}
+
+/* Section Divider */
+.section-divider {
+    height: 1px;
+    /* Replace background & border with variable */
+    /* Optional backdrop filter (usually for transparent dark mode) */
+    background: linear-gradient(90deg, transparent 0%, var(--border-color) 50%, transparent 100%);
+    margin: 32px 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+    .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 20px 16px;
+    }
+
+    .team-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card {
+        padding: 20px 16px;
+    }
+
+    .info-label {
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .info-label {
+        min-width: auto;
+    }
+}
+
+/* ===== MODAL POPUP ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 1200px;
+    width: 100%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    border: none;
+    display: flex;
+    /* Ensure it behaves like a container */
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Reusing Profile Card Styles for Modal content */
+.modal-profile-card {
+    background: var(--box);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    z-index: 10;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.close-btn:hover {
+    background: var(--bg-sidebar-hover);
+    color: var(--text-primary);
+}
+
+/* Modal Inner Layout (Copied & Adapted from user_profiles.css) */
+.modal-left {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    min-width: 250px;
+}
+
+.modal-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* Square aspect ratio like detailed view usually has or maintains generic */
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.modal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-name {
+    color: var(--text-primary);
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+
+.modal-role {
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.modal-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-item {
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    text-align: justify;
+}
+
+.modal-item-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.modal-item-value {
+    color: var(--text-primary);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .modal-profile-card {
+        flex-direction: column;
+        padding: 24px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-left {
+        width: 100%;
+        min-width: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-photo {
+        width: 180px;
+        margin-bottom: 16px;
+    }
+}

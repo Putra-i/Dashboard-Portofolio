@@ -1,0 +1,138 @@
+/* ===== USER PROFILES PAGE STYLES ===== */
+
+/* Main Container */
+.profiles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: clamp(320px, 90%, 1600px);
+    margin: auto;
+    margin-top: 32px;
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card {
+    background: var(--box);
+    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Profile Left Section */
+.profile-left {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    min-width: 180px;
+}
+
+.profile-photo {
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    color: var(--text-primary);
+    font-weight: 300;
+    margin-bottom: 4px
+}
+
+.profile-role {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 4px
+}
+
+/* Profile Right Section */
+.profile-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+}
+
+/* Contact Section */
+.profile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-item {
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    text-align: justify;
+}
+
+.contact-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-bottom: 4px
+}
+
+.contact-value {
+    color: var(--text-primary);
+    font-weight: 300;
+    margin-bottom: 4px
+}
+
+/* Profile Actions */
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.continue-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 32px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "PublicSans", sans-serif;
+}
+
+.continue-btn:hover {
+    background: var(--bg-sidebar-hover);
+    border-color: var(--text-secondary);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        padding: 28px 20px;
+        gap: 32px;
+    }
+
+    .continue-btn {
+        width: 100%;
+    }
+}

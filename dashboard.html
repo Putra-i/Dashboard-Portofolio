@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DataViz</title>
+    <link rel="stylesheet" href="styeles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        if (localStorage.getItem('sidebarState') === 'minisize') {
+            document.body.classList.add('preload-minisize');
+        }
+    </script>
+    <!-- ===== SIDEBAR NAV ===== -->
+    <nav class="sidebar" id="sidebar">
+        <!-- logo -->
+        <div class="logo">
+            <img class="logo_img" src="assets/logo/Logo.svg">
+            <h1>DataViz</h1>
+        </div>
+
+        <!-- resize button -->
+        <button class="nav_button" id="sidebar_toggle">
+            <img src="assets/icons/keyboard_double_arrow_left_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="resize">
+            <div class="tooltip">
+                <span class="tooltip_text">resize navigation</span>
+            </div>
+        </button>
+
+
+        <!-- line -->
+        <div class="line horizontal"></div>
+
+        <!-- nav -->
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="nav_button current_page"><img
+                src="assets/icons/dashboard_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Dashboard</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Dashboard</strong>
+                <span class="tooltip_text">summary of information and analysis</span>
+            </div>
+        </a>
+
+        <!-- Statistic -->
+        <a href="statistics.html" class="nav_button"><img
+                src="assets/icons/analytics_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Statistics</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Statistics</strong>
+                <span class="tooltip_text">all project statistics</span>
+            </div>
+        </a>
+
+        <!-- Profiles -->
+        <a href="profiles.html" class="nav_button"><img
+                src="assets/icons/group_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Profiles</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Profiles</strong>
+                <span class="tooltip_text">view other profiles</span>
+            </div>
+        </a>
+
+        <!-- Settings -->
+        <a href="settings.html" class="nav_button"><img
+                src="assets/icons/settings_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Settings</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Settings</strong>
+                <span class="tooltip_text">edit preferences and Configuration</span>
+            </div>
+        </a>
+
+        <footer>
+            &copy; 2025 19 Juta. All rights reserved.
+        </footer>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== HEADER ===== -->
+        <header class="container">
+            <div class="title">Dashboard</div>
+
+            <div class="search-container">
+                <div class="search">
+                    <img src="assets/icons/search icon.svg" alt="search">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+
+            <div class="my_profile">
+                <div class="my_name">Rei Ayanami</div>
+                <div class="my_role">Admin</div>
+                <div class="my_picture"><img src="assets/Rei-Ayanami.webp"></div>
+            </div>
+        </header>
+
+        <!-- ===== CONTENT ===== -->
+        <div class="dashboard-container">
+
+            <!-- Project Stats -->
+            <div class="dashboard-stats box">
+
+                <!-- stat left -->
+                <div class="dashboard-stat-left">
+
+                    <!-- ongoing -->
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-header">
+                            <span>Ongoing Project</span>
+                            <div class="dashboard-icon"><img
+                                    src="assets/icons/assignment_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg"></div>
+                        </div>
+                        <div class="dashboard-stat-number">12</div>
+                    </div>
+
+                    <!-- submitted -->
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-header">
+                            <span>Submitted Project</span>
+                            <div class="dashboard-icon"><img
+                                    src="assets/icons/assignment_turned_in_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg">
+                            </div>
+                        </div>
+                        <div class="dashboard-stat-number">11</div>
+                    </div>
+
+                    <!-- overdue -->
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-header">
+                            <span>Overdue Project</span>
+                            <div class="dashboard-icon"><img
+                                    src="assets/icons/assignment_late_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg"></div>
+                        </div>
+                        <div class="dashboard-stat-number">2</div>
+                    </div>
+
+                </div>
+
+                <!-- stat right -->
+                <div class="dashboard-stat-right">
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-header">
+                            <span>All Project</span>
+                        </div>
+                        <div class="dashboard-stat-number">25</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Notifications -->
+            <div class="dashboard-notification-panel box">
+                <h2>Notification</h2>
+                <div class="dashboard-notifications">
+                    <div class="dashboard-notification-item">
+                        <div class="dashboard-notification-header">
+                            <strong>Rhairew (Client)</strong>
+                        </div>
+                        <p>There are a few things I'd like to ask about this project. It concerns the increasingly dire
+                            financial situation...</p>
+                    </div>
+
+                    <div class="dashboard-notification-item">
+                        <div class="dashboard-notification-header">
+                            <strong>System</strong>
+                        </div>
+                        <p>Deadline approaching: "Client Presentation" is due in 24 hours.</p>
+                    </div>
+
+                    <div class="dashboard-notification-item">
+                        <div class="dashboard-notification-header">
+                            <strong>System</strong>
+                        </div>
+                        <p>You were mentioned in a comment on task "Bug Fix #42" by Nirwana</p>
+                    </div>
+
+                    <div class="dashboard-notification-item">
+                        <div class="dashboard-notification-header">
+                            <strong>System</strong>
+                        </div>
+                        <p>Project status changed to "In Progress" by Farel</p>
+                    </div>
+
+                    <div class="dashboard-notification-item">
+                        <div class="dashboard-notification-header">
+                            <strong>Anonymous</strong>
+                        </div>
+                        <p>Happy birthday!!! I just want you to know that everyone loves you, please take care of your
+                            health :)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistic Section -->
+            <div class="dashboard-chart-section box">
+                <h2>Statistic</h2>
+                <canvas id="statisticChart"></canvas>
+            </div>
+
+            <!-- Client Table -->
+            <div class="dashboard-client-panel box">
+                <h2>Client</h2>
+                <table class="dashboard-client-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>Deadline Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Farel Anugrah</td>
+                            <td><span class="dashboard-status ongoing">Ongoing</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Putra</td>
+                            <td><span class="dashboard-status overdue">Overdue</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Nirwana</td>
+                            <td><span class="dashboard-status ongoing">Ongoing</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td><span class="dashboard-status ongoing">Ongoing</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Travis Bickle</td>
+                            <td><span class="dashboard-status submitted">Submitted</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Andy Dufresne</td>
+                            <td><span class="dashboard-status submitted">Submitted</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                        <tr>
+                            <td>Askeladd</td>
+                            <td><span class="dashboard-status cancelled">Cancelled</span></td>
+                            <td>22-10-2025</td>
+                            <td>13-12-2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Client Legends -->
+            <div class="dashboard-legends-panel box">
+                <h2>Legends</h2>
+                <div class="dashboard-legends-section">
+                    <div>
+                        <span class="dashboard-status ongoing">Ongoing</span>
+                        <span class="desc">Task is currently in progress.</span>
+                    </div>
+                    <div><span class="dashboard-status overdue">Overdue</span>
+                        <span class="desc">Task has passed its deadline and is not completed.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status submitted">Submitted</span>
+                        <span class="desc">Task has been completed and handed in.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status cancelled">Cancelled</span>
+                        <span class="desc">Task has been stopped and will not continue.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status pending">Pending</span>
+                        <span class="desc">Waiting to be started or awaiting input.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status review">In Review</span>
+                        <span class="desc">Submitted but awaiting evaluation.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status approved">Approved</span>
+                        <span class="desc">Reviewed and accepted.</span>
+                    </div>
+                    <div>
+                        <span class="dashboard-status hold">On Hold</span>
+                        <span class="desc">Task is temporarily paused.</span>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

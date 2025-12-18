@@ -1,0 +1,418 @@
+/* ===== SETTINGS PAGE STYLES ===== */
+
+/* --- Main Layout --- */
+.settings_content {
+    width: clamp(320px, 90%, 1600px);
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* --- Settings Tabs --- */
+.settings_tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    /* Using Variable */
+    padding-bottom: 0;
+    overflow-x: auto;
+    /* Scroll if screen is small */
+}
+
+.tab_btn {
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    /* Using Variable */
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    white-space: nowrap;
+}
+
+.tab_btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-sidebar-hover);
+}
+
+.tab_btn.active {
+    color: #3b82f6;
+    /* Main Blue Color */
+    border-bottom-color: #3b82f6;
+}
+
+/* --- Settings Container (Main Card) --- */
+.settings_container {
+    background: var(--box);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 32px;
+}
+
+.tab_content {
+    display: none;
+}
+
+.tab_content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Typography --- */
+.section_title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    /* Variable */
+    margin-bottom: 24px;
+}
+
+.section_label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    /* Variable */
+    margin-bottom: 12px;
+}
+
+.option_info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.option_info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --- Profile Picture Section --- */
+.profile_picture_section {
+    margin-bottom: 32px;
+    /* Center upload box horizontally on page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_upload {
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* UPLOAD BOX (FIXED HERE) */
+.upload_placeholder {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+
+    /* Flexbox centers icon & text positionally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* MAIN FIX: So second line text is also centered */
+    text-align: center;
+
+    gap: 8px;
+    background: var(--bg-body);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 10px;
+    /* Added padding so text doesn't hit edges */
+}
+
+.upload_placeholder:hover {
+    border-color: #3b82f6;
+    background: var(--bg-sidebar-hover);
+    color: #3b82f6;
+}
+
+.upload_placeholder svg {
+    stroke: currentColor;
+}
+
+/* --- Forms --- */
+.form_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form_group.full_width {
+    grid-column: 1 / -1;
+}
+
+.form_group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Input Fields Style */
+.form_group input,
+.form_group textarea,
+.form_group select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--box2);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form_group input::placeholder,
+.form_group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.form_group input:focus,
+.form_group select:focus,
+.form_group textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Phone Input Wrapper */
+.phone_input {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--box);
+}
+
+.phone_input .country_code {
+    padding: 12px 16px;
+    background: var(--bg-sidebar-hover);
+    color: var(--text-secondary);
+    font-size: 14px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.phone_input input {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+.phone_input input:focus {
+    box-shadow: none;
+}
+
+/* --- Buttons --- */
+.form_actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_primary {
+    background: #3b82f6;
+    color: #fff;
+    margin-left: auto;
+}
+
+.btn_primary:hover {
+    background: #2563eb;
+}
+
+.btn_secondary {
+    background: var(--box1);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn_secondary:hover {
+    background: var(--box-hover);
+}
+
+.btn_danger {
+    background: #ef4444;
+    color: #fff;
+}
+
+.btn_danger:hover {
+    background: #dc2626;
+}
+
+/* --- Logout Section --- */
+.logout_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--box2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.logout_section:hover {
+    border-color: var(--box-hover);
+}
+
+/* --- Security & Notifications Items --- */
+.security_option,
+.notification_item,
+.interface_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--box2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.security_option:hover,
+.notification_item:hover,
+.interface_item:hover {
+    border-color: var(--box-hover);
+}
+
+/* --- Toggle Switch --- */
+.toggle_switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.toggle_switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #3b82f6;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .settings_content {
+        padding: 0 20px;
+    }
+
+    .settings_container {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .settings_content {
+        padding: 0 16px;
+    }
+
+    .settings_container {
+        padding: 20px;
+    }
+
+    .form_grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form_actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .security_option,
+    .notification_item,
+    .interface_item,
+    .logout_section {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .toggle_switch {
+        align-self: flex-end;
+    }
+
+    .logout_section .btn_danger {
+        width: 100%;
+    }
+}

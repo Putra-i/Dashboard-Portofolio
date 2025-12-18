@@ -1,0 +1,536 @@
+/* ===== IMPORT FONT ===== */
+@font-face {
+  font-family: "PublicSans";
+  src: url("font/Public_Sans/PublicSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PublicSans";
+  src: url("font/Public_Sans/PublicSans-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* ===== COLOR VARIABLES (THEME ENGINE) ===== */
+:root {
+  /* --- LIGHT MODE (DEFAULT) --- */
+  --bg-body: #ffffff;
+  /* Background utama terang */
+  --bg-sidebar: #ffffff;
+  /* Sidebar putih */
+  --bg-sidebar-hover: #f0f0f0;
+  /* Hover menu terang */
+  --bg-card: #ffffff6e;
+
+  --text-primary: #252525;
+  /* Teks utama gelap */
+  --text-secondary: #47525c;
+  /* Teks sekunder abu-abu */
+
+  --box: rgba(255, 255, 255, 0.466);
+  --box2: rgba(204, 204, 204, 0.171);
+  --box3: rgba(255, 255, 255, 0.671);
+  --box-hover: #c9c9c9;
+
+  --border-color: #929292;
+  /* Garis batas tipis */
+
+  --search-bg: #ffffff;
+  /* Search bar terang */
+  --search-border: #dfe3e8;
+  --search-text: #212b36;
+  --search-placeholder: #232629;
+
+  --shadow-sidebar: 1px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+  /* --- DARK MODE --- */
+  --bg-body: #32353a;
+  /* Fallback background gelap */
+  --bg-sidebar: #232323;
+  /* Sidebar gelap (sesuai kode asli Anda) */
+  --bg-sidebar-hover: #444444;
+  --bg-card: #212b36;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-nav-button: #8f8f8f;
+
+  --box: rgba(0, 0, 0, 0.164);
+  --box2: rgba(0, 0, 0, 0.336);
+  --box-hover: #363636;
+
+  --border-color: #444444;
+
+  --search-bg: rgba(175, 175, 175, 0.24);
+  /* Glassmorphism search */
+  --search-border: rgba(184, 184, 184, 0.22);
+  --search-text: #bebebe;
+  --search-placeholder: #bebebe;
+
+  --shadow-sidebar: none;
+}
+
+/* ===== ALL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "PublicSans", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+
+  background-image: url(assets/backgrounds/white\ bg_waifu2x_photo_noise3_scale.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* Menampilkan Background Gradient HANYA saat Dark Mode (opsional) 
+   Jika ingin Light Mode polos, biarkan begini. */
+body.dark-mode {
+  background-image: url(assets/backgrounds/Background\ Gradient.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Disable all transitions when open page */
+.no-animation * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.hidden {
+  display: none;
+}
+
+/* BOUNCE ROTATE ANIMATIONS */
+@keyframes rotateBounce {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(200deg);
+  }
+
+  80% {
+    transform: rotate(170deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateBounceBack {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  60% {
+    transform: rotate(-20deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  background: var(--bg-sidebar);
+  /* FIX: Menggunakan Variable */
+  border-right: 1px solid var(--border-color);
+  /* Tambahan border agar terlihat di Light Mode */
+  height: 100vh;
+  position: fixed;
+  transition: all 0.3s ease;
+  padding: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: var(--shadow-sidebar);
+  z-index: 100;
+}
+
+/* --- logo--- */
+.sidebar .logo {
+  position: absolute;
+  margin: 8px 0 0 10px;
+  color: var(--text-primary);
+  /* FIX: Variable */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.sidebar .logo h1 {
+  font-size: 21px;
+}
+
+.sidebar .logo_img {
+  width: 25px;
+}
+
+body:not(.dark-mode) .sidebar .logo_img {
+  filter: brightness(0.2);
+  transition: filter 0.3s ease;
+}
+
+/* --- resize button --- */
+.sidebar #sidebar_toggle {
+  margin-left: auto;
+  cursor: pointer;
+  filter: invert(0);
+  /* Reset filter */
+}
+
+/* Agar icon toggle terlihat di light mode (jika iconnya putih) */
+body:not(.dark-mode) .sidebar #sidebar_toggle img {
+  filter: brightness(0.2);
+  /* Gelapkan icon saat light mode */
+}
+
+/* --- button effect --- */
+.sidebar.minisize,
+body.preload-minisize .sidebar {
+  height: 300px;
+  width: 64px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#sidebar_toggle img {
+  transition: transform 0.3s;
+}
+
+#sidebar_toggle.rotated img {
+  animation: rotateBounce 0.8s ease-out forwards;
+}
+
+#sidebar_toggle:not(.rotated) img {
+  animation: rotateBounceBack 0.8s ease-out forwards;
+}
+
+/*hidden elements*/
+.sidebar .logo,
+.sidebar .nav_button>span,
+.sidebar footer {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar .fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- line --- */
+.line {
+  background-color: var(--border-color);
+  /* FIX: Variable */
+  margin: 8px;
+}
+
+.line.horizontal {
+  height: 1px;
+}
+
+.line.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+/* --- sidebar button --- */
+.sidebar .nav_button {
+  background: none;
+  display: block;
+  padding: 10px;
+  color: var(--text-nav-button);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  overflow: visible;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Icon adjustment for themes */
+.sidebar .nav_button img {
+  height: 1.4em;
+  width: 1.4em;
+  transition: filter 0.3s;
+}
+
+/* Logic Icon Warna: 
+   Jika Light Mode -> Icon gelap. 
+   Jika Dark Mode -> Icon terang/putih. */
+.sidebar .current_page img,
+.sidebar .current_page span {
+  filter: brightness(10);
+  /* Putihkan icon */
+}
+
+body:not(.dark-mode) .sidebar .current_page img,
+body:not(.dark-mode) .sidebar .current_page span {
+  filter: brightness(0.1);
+  /* Hitamkan icon */
+  transition: filter 0.3s ease;
+}
+
+.sidebar .nav_button:hover {
+  background-color: var(--bg-sidebar-hover);
+  /* FIX: Variable */
+  color: var(--text-primary);
+}
+
+body:not(.dark-mode) .sidebar .nav_button:hover {
+  color: #000000;
+}
+
+/* --- footer --- */
+footer {
+  color: var(--text-secondary);
+  font-size: 11px;
+  margin: auto 0 8px 0;
+}
+
+/* --- tooltip --- */
+.tooltip {
+  left: 220px;
+  visibility: hidden;
+  background-color: var(--bg-sidebar);
+  color: var(--text-primary);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  padding: 6px;
+  position: absolute;
+  z-index: 999;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip.minisize {
+  left: 70px;
+}
+
+.tooltip .tooltip_title {
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.tooltip .tooltip_text {
+  font-weight: 100;
+  font-size: 13px;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.nav_button:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== MAIN ===== */
+main {
+  margin-left: 210px;
+  padding: 32px;
+  transition: 0.3s;
+  color: var(--text-primary);
+}
+
+main.resize,
+body.preload-minisize main {
+  margin-left: 64px;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-primary);
+  width: clamp(320px, 90%, 1600px);
+  margin: auto;
+}
+
+/* --- title --- */
+header .title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: auto 0 auto 0;
+}
+
+/* --- search --- */
+.search-container {
+  position: relative;
+}
+
+header .search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 1000px;
+  font-size: 20px;
+  cursor: text;
+  transition: all 0.3s ease;
+  height: 36px;
+}
+
+header .search img {
+  width: 0.8em;
+  height: 0.8em;
+  flex-shrink: 0;
+  /* Adjust search icon color based on text color */
+  filter: opacity(0.5);
+}
+
+body.dark-mode header .search img {
+  filter: invert(1);
+}
+
+header .search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--search-text);
+  /* FIX */
+  font-size: 18px;
+  width: 80px;
+  transition: width 0.3s ease;
+  padding: 0;
+  line-height: normal;
+}
+
+header .search input::placeholder {
+  color: var(--search-placeholder);
+
+}
+
+header .search:hover,
+header .search.active {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-color: var(--text-secondary);
+  background: var(--search-bg);
+  border: 1px solid var(--search-border);
+  color: var(--search-text);
+}
+
+header .search.active input {
+  width: 30vw;
+}
+
+/* Dropdown Search */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+
+  background: var(--bg-sidebar);
+  /* FIX: Match sidebar/card bg */
+  border: 1px solid var(--border-color);
+
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+}
+
+.search-dropdown.show {
+  display: block;
+}
+
+.search-item {
+  padding: 12px 22px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item:hover,
+.search-item.selected {
+  background: var(--bg-sidebar-hover);
+}
+
+.no-results {
+  padding: 12px 22px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* --- profile --- */
+header .my_profile {
+  display: grid;
+  grid-template-columns: 1fr 36px;
+  grid-template-rows: repeat(2, auto);
+  column-gap: 12px;
+}
+
+header .my_name {
+  grid-area: 1 / 1 / 2 / 2;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+header .my_role {
+  grid-area: 2 / 1 / 3 / 2;
+  text-align: right;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+header .my_picture {
+  grid-area: 1 / 2 / 3 / 3;
+  margin: auto 0 auto 0;
+  padding: 0;
+  overflow: hidden;
+  max-width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  text-align: right;
+  border: 1px solid var(--border-color);
+}
+
+header .my_picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

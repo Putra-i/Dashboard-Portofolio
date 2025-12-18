@@ -1,0 +1,519 @@
+/* ===== PROJECT PAGE STYLES (FINAL FIXED) ===== */
+
+.project_content {
+    width: clamp(320px, 90%, 1600px);
+    margin: auto;
+    margin-top: 32px;
+}
+
+/* --- View Controls --- */
+.view_controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.view_btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+
+    background: transparent;
+    border: 1px solid var(--border-color);
+    /* Variable */
+    border-radius: 6px;
+
+    color: var(--text-secondary);
+    /* Variable */
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view_btn:hover {
+    background: var(--bg-sidebar-hover);
+    /* Variable */
+    color: var(--text-primary);
+}
+
+.view_btn.active {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.view_btn span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* --- Team Space Container (KARTU UTAMA) --- */
+.team_space_container {
+    background: var(--box);
+    /* Variable: White in Light, Dark in Dark */
+    border: 1px solid var(--border-color);
+    /* Variable */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.team_space_header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    /* Variable */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Project Section --- */
+.project_section {
+    margin-bottom: 32px;
+
+}
+
+.project_section:last-child {
+    margin-bottom: 0;
+}
+
+.project_header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* Collapse Arrow Button */
+.collapse_btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    /* Variable */
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.collapse_btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-sidebar-hover);
+}
+
+.collapse_btn.rotated svg {
+    transform: rotate(-90deg);
+}
+
+.collapse_btn svg {
+    transition: transform 0.3s ease;
+}
+
+.collapse_btn.small {
+    padding: 2px;
+}
+
+.project_title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    /* Variable */
+}
+
+/* --- Project Body --- */
+.project_body {
+    padding-left: 24px;
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.project_body.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Status Section --- */
+.status_section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.status_badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Status Colors */
+.status_badge.todo {
+    background: rgba(142, 142, 142, 0.15);
+    color: #8e8e8e;
+}
+
+.status_badge.in_progress {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.status_badge.completed {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.status_badge.overdue {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.status_dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status_badge.todo .status_dot {
+    background: #8e8e8e;
+}
+
+.status_badge.in_progress .status_dot {
+    background: #22c55e;
+}
+
+.status_badge.completed .status_dot {
+    background: #3b82f6;
+}
+
+.status_badge.overdue .status_dot {
+    background: #ef4444;
+}
+
+.task_count {
+    background: rgba(128, 128, 128, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* --- Task Table (STRAIGHT LINE FIXED) --- */
+.task_table {
+    width: 100%;
+    /* IMPORTANT: collapse so lines merge */
+    border-collapse: collapse;
+    margin-top: 16px;
+    table-layout: fixed;
+    /* Make columns stable */
+}
+
+/* Table Header */
+.task_table thead th {
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    /* Variable */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+    /* Variable */
+}
+
+.task_table th:first-child {
+    width: 45%;
+}
+
+.task_table th:nth-child(2),
+.task_table th:nth-child(3),
+.task_table th:nth-child(4) {
+    width: 18.3%;
+    text-align: center;
+}
+
+/* Table Row */
+.task_table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.task_table tbody tr:hover {
+    background: var(--bg-sidebar-hover);
+    /* Variable */
+}
+
+/* Table Cell (TD) */
+.task_table td {
+    /* IMPORTANT: Remove display:flex, use table-cell */
+    display: table-cell;
+    vertical-align: middle;
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    /* Straight line */
+    color: var(--text-primary);
+    height: 60px;
+    /* Consistent height */
+}
+
+/* Remove border on last row */
+.task_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- First Column Styling (Checkbox & Name) --- */
+.task_row td:first-child {
+    position: relative;
+    /* We set alignment manually without flexbox so table lines are safe */
+}
+
+/* Checkbox */
+.task_checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    background: transparent;
+    transition: all 0.2s ease;
+
+    /* Alignment */
+    vertical-align: middle;
+    margin-right: 12px;
+    margin-top: -2px;
+}
+
+.task_checkbox:hover {
+    border-color: var(--text-primary);
+}
+
+.task_checkbox:checked {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.task_checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Task Name Text */
+.task_row td span {
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* --- Middle Column Alignment --- */
+.task_row td:nth-child(2),
+.task_row td:nth-child(3),
+.task_row td:nth-child(4) {
+    text-align: center;
+}
+
+/* --- Icon Buttons --- */
+.icon_btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    /* Variable */
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    /* Variable */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.icon_btn:hover {
+    background: var(--bg-sidebar-hover);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.icon_btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- Add Task Row --- */
+.add_task_row td {
+    border-bottom: none !important;
+    padding-top: 20px;
+}
+
+.add_task_row:hover {
+    background: transparent !important;
+}
+
+.add_task_btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: transparent;
+
+    border: 1px dashed var(--border-color);
+    /* Variable */
+    border-radius: 6px;
+
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.add_task_btn:hover {
+    background: var(--bg-sidebar-hover);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.add_task_btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.team_space_container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.team_space_container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.team_space_container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.team_space_container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task_row.new {
+    animation: slideIn 0.3s ease;
+}
+
+
+@media (max-width: 1200px) {
+    .project_content {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .task_table th:first-child {
+        width: 50%;
+    }
+
+    .task_table th:nth-child(2),
+    .task_table th:nth-child(3),
+    .task_table th:nth-child(4) {
+        width: 16.66%;
+    }
+}
+
+@media (max-width: 768px) {
+    .project_content {
+        padding: 0 16px;
+    }
+
+    .team_space_container {
+        padding: 16px;
+    }
+
+    .task_table {
+        font-size: 12px;
+    }
+
+    .task_table th,
+    .task_table td {
+        padding: 8px;
+    }
+
+    .project_body {
+        padding-left: 12px;
+    }
+
+    .icon_btn {
+        padding: 6px;
+    }
+
+    .icon_btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view_btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .project_title {
+        font-size: 14px;
+    }
+
+    .status_badge {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    .task_table th {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    .task_table td {
+        padding: 12px 4px;
+    }
+
+    .task_row td span {
+        font-size: 12px;
+    }
+}

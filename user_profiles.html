@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - DataViz</title>
+    <link rel="stylesheet" href="styeles.css">
+    <link rel="stylesheet" href="user_profiles.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        if (localStorage.getItem('sidebarState') === 'minisize') {
+            document.body.classList.add('preload-minisize');
+        }
+    </script>
+    <!-- ===== SIDEBAR NAV ===== -->
+    <nav class="sidebar" id="sidebar">
+        <!-- logo -->
+        <div class="logo">
+            <img class="logo_img" src="assets/logo/Logo.svg">
+            <h1>DataViz</h1>
+        </div>
+
+        <!-- resize button -->
+        <button class="nav_button" id="sidebar_toggle">
+            <img src="assets/icons/keyboard_double_arrow_left_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="resize">
+            <div class="tooltip">
+                <span class="tooltip_text">resize navigation</span>
+            </div>
+        </button>
+
+
+        <!-- line -->
+        <div class="line horizontal"></div>
+
+        <!-- nav -->
+        <!-- Dashboard -->
+        <a href="user_dashboard.html" class="nav_button"><img
+                src="assets/icons/dashboard_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Dashboard</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Dashboard</strong>
+                <span class="tooltip_text">summary of information and analysis</span>
+            </div>
+        </a>
+
+        <!-- Project -->
+        <a href="user_projects.html" class="nav_button"><img
+                src="assets/icons/assignment_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Projects</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Projects</strong>
+                <span class="tooltip_text">view and edit projects</span>
+            </div>
+        </a>
+
+        <!-- Profiles -->
+        <a href="user_profiles.html" class="nav_button current_page"><img
+                src="assets/icons/group_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Profile</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Profile</strong>
+                <span class="tooltip_text">view other profiles</span>
+            </div>
+        </a>
+
+        <!-- Settings -->
+        <a href="user_settings.html" class="nav_button"><img
+                src="assets/icons/settings_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Settings</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Settings</strong>
+                <span class="tooltip_text">edit preferences and Configuration</span>
+            </div>
+        </a>
+
+        <footer>
+            &copy; 2025 19 Juta. All rights reserved.
+        </footer>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== HEADER ===== -->
+        <header class="container">
+            <div class="title">Profile</div>
+
+            <div class="search-container">
+                <div class="search">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bebebe' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E"
+                        alt="search">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+
+            <div class="my_profile">
+                <div class="my_name">Lain Iwakura</div>
+                <div class="my_role">Programmer</div>
+                <div class="my_picture"><img src="assets/Lain-Iwakura.webp"></div>
+            </div>
+        </header>
+
+        <!-- ===== CONTENT ===== -->
+        <section class="profiles-container">
+            <div class="profile-card">
+                <div class="profile-left">
+                    <div class="profile-photo">
+                        <img src="assets/Lain-Iwakura.webp" alt="Lain Iwakura">
+                    </div>
+                    <h2 class="profile-name">Lain Iwakura</h2>
+                    <p class="profile-role">Programmer</p>
+                </div>
+
+                <div class="profile-right">
+                    <div class="profile-contact">
+                        <div class="contact-item">
+                            <h3 class="contact-label">Bio</h3>
+                            <p class="contact-value">Lain Iwakura is a quiet and reserved junior high school student who
+                                initially shows little interest in computers or social interaction. She lives a
+                                seemingly ordinary life with her family, spending most of her time at home and at
+                                school. However, Lain is introverted and withdrawn, often perceived as distant and
+                                emotionless, though observant and thoughtful.</p>
+                            <p class="contact-value">Lain has a strong interest in computer systems and network
+                                technology, gradually developing advanced technical skills. She tends to work
+                                independently, preferring solitude and deep focus over collaboration. Despite her
+                                withdrawn personality, she shows a high level of self-awareness and curiosity about
+                                human connection, identity, and reality. Those who know her describe her as enigmatic,
+                                intelligent, and difficult to fully understand.</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-label">Email</h3>
+                            <p class="contact-value">lainiwakura@mail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-label">Phone</h3>
+                            <p class="contact-value">083283173382</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-label">Social link</h3>
+                            <p class="contact-value">Github, Instagram, Linkedin</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="continue-btn"
+                            onclick="window.location.href='user_settings.html'">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+
+
+
+</body>
+
+</html>

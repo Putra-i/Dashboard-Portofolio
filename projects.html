@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - DataViz</title>
+    <link rel="stylesheet" href="styeles.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        if (localStorage.getItem('sidebarState') === 'minisize') {
+            document.body.classList.add('preload-minisize');
+        }
+    </script>
+    <!-- ===== SIDEBAR NAV ===== -->
+    <nav class="sidebar" id="sidebar">
+        <!-- logo -->
+        <div class="logo">
+            <img class="logo_img" src="assets/logo/Logo.svg">
+            <h1>DataViz</h1>
+        </div>
+
+        <!-- resize button -->
+        <button class="nav_button" id="sidebar_toggle">
+            <img src="assets/icons/keyboard_double_arrow_left_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="resize">
+            <div class="tooltip">
+                <span class="tooltip_text">resize navigation</span>
+            </div>
+        </button>
+
+
+        <!-- line -->
+        <div class="line horizontal"></div>
+
+        <!-- nav -->
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="nav_button"><img
+                src="assets/icons/dashboard_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Dashboard</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Dashboard</strong>
+                <span class="tooltip_text">summary of information and analysis</span>
+            </div>
+        </a>
+
+        <!-- Statistic -->
+        <a href="statistics.html" class="nav_button"><img
+                src="assets/icons/analytics_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Statistics</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Statistics</strong>
+                <span class="tooltip_text">all project statistics</span>
+            </div>
+        </a>
+
+        <!-- Project -->
+        <a href="projects.html" class="nav_button current_page"><img
+                src="assets/icons/assignment_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Projects</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Projects</strong>
+                <span class="tooltip_text">view and edit projects</span>
+            </div>
+        </a>
+
+        <!-- Profiles -->
+        <a href="profiles.html" class="nav_button"><img
+                src="assets/icons/group_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Profiles</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Profiles</strong>
+                <span class="tooltip_text">view other profiles</span>
+            </div>
+        </a>
+
+        <!-- Settings -->
+        <a href="settings.html" class="nav_button"><img
+                src="assets/icons/settings_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Settings</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Settings</strong>
+                <span class="tooltip_text">edit preferences and Configuration</span>
+            </div>
+        </a>
+
+        <footer>
+            &copy; 2025 19 Juta. All rights reserved.
+        </footer>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== HEADER ===== -->
+        <header class="container">
+            <div class="title">Projects</div>
+
+            <div class="search-container">
+                <div class="search">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bebebe' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E"
+                        alt="search">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+
+            <div class="my_profile">
+                <div class="my_name">Rei Ayanami</div>
+                <div class="my_role">Admin</div>
+                <div class="my_picture"><img src="assets/Rei-Ayanami.webp"></div>
+            </div>
+        </header>
+
+        <!-- ===== CONTENT ===== -->
+        <section class="project_content">
+            <!-- View Button -->
+            <div class="view_controls">
+                <button class="view_btn active">
+                    <span>+</span> View
+                </button>
+            </div>
+
+            <!-- Team Space Container -->
+            <div class="team_space_container">
+                <div class="team_space_header">Team Space</div>
+
+                <!-- Project 1 -->
+                <div class="project_section">
+                    <div class="project_header">
+                        <button class="collapse_btn">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <span class="project_title">Project 1</span>
+                    </div>
+
+                    <div class="project_body">
+                        <!-- Status Badge -->
+                        <div class="status_section">
+                            <button class="collapse_btn small">
+                                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="status_badge todo">
+                                <span class="status_dot"></span>
+                                <span>TO DO</span>
+                                <span class="task_count">3</span>
+                            </div>
+                        </div>
+
+                        <!-- Task Table -->
+                        <table class="task_table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Assignee</th>
+                                    <th>Due date</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="task_row">
+                                    <td>
+                                        <input type="checkbox" class="task_checkbox">
+                                        <span>Task 1</span>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn assignee_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                <circle cx="9" cy="7" r="4" />
+                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn date_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                                <line x1="16" y1="2" x2="16" y2="6" />
+                                                <line x1="8" y1="2" x2="8" y2="6" />
+                                                <line x1="3" y1="10" x2="21" y2="10" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn flag_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                                <line x1="4" y1="22" x2="4" y2="15" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="task_row">
+                                    <td>
+                                        <input type="checkbox" class="task_checkbox">
+                                        <span>Task 2</span>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn assignee_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                <circle cx="9" cy="7" r="4" />
+                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn date_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                                <line x1="16" y1="2" x2="16" y2="6" />
+                                                <line x1="8" y1="2" x2="8" y2="6" />
+                                                <line x1="3" y1="10" x2="21" y2="10" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn flag_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                                <line x1="4" y1="22" x2="4" y2="15" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="task_row">
+                                    <td>
+                                        <input type="checkbox" class="task_checkbox">
+                                        <span>Task 3</span>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn assignee_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                <circle cx="9" cy="7" r="4" />
+                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn date_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                                <line x1="16" y1="2" x2="16" y2="6" />
+                                                <line x1="8" y1="2" x2="8" y2="6" />
+                                                <line x1="3" y1="10" x2="21" y2="10" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn flag_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                                <line x1="4" y1="22" x2="4" y2="15" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="add_task_row">
+                                    <td colspan="4">
+                                        <button class="add_task_btn">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                            <span>Add Task</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project_section">
+                    <div class="project_header">
+                        <button class="collapse_btn">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <span class="project_title">Project 2</span>
+                    </div>
+
+                    <div class="project_body">
+                        <!-- Status Badge -->
+                        <div class="status_section">
+                            <button class="collapse_btn small">
+                                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <div class="status_badge in_progress">
+                                <span class="status_dot"></span>
+                                <span>IN PROGRESS</span>
+                                <span class="task_count">1</span>
+                            </div>
+                        </div>
+
+                        <!-- Task Table -->
+                        <table class="task_table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Assignee</th>
+                                    <th>Due date</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="task_row">
+                                    <td>
+                                        <input type="checkbox" class="task_checkbox">
+                                        <span>Task 1</span>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn assignee_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                <circle cx="9" cy="7" r="4" />
+                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn date_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                                <line x1="16" y1="2" x2="16" y2="6" />
+                                                <line x1="8" y1="2" x2="8" y2="6" />
+                                                <line x1="3" y1="10" x2="21" y2="10" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="icon_btn flag_btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                                <line x1="4" y1="22" x2="4" y2="15" />
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="add_task_row">
+                                    <td colspan="4">
+                                        <button class="add_task_btn">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                            <span>Add Task</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+    <script src="projects.js"></script>
+
+</body>
+
+</html>

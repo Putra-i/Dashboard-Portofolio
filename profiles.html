@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles - DataViz</title>
+    <link rel="stylesheet" href="styeles.css">
+    <link rel="stylesheet" href="profiles.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        if (localStorage.getItem('sidebarState') === 'minisize') {
+            document.body.classList.add('preload-minisize');
+        }
+    </script>
+    <!-- ===== SIDEBAR NAV ===== -->
+    <nav class="sidebar" id="sidebar">
+        <!-- logo -->
+        <div class="logo">
+            <img class="logo_img" src="assets/logo/Logo.svg">
+            <h1>DataViz</h1>
+        </div>
+
+        <!-- resize button -->
+        <button class="nav_button" id="sidebar_toggle">
+            <img src="assets/icons/keyboard_double_arrow_left_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="resize">
+            <div class="tooltip">
+                <span class="tooltip_text">resize navigation</span>
+            </div>
+        </button>
+
+
+        <!-- line -->
+        <div class="line horizontal"></div>
+
+        <!-- nav -->
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="nav_button"><img
+                src="assets/icons/dashboard_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Dashboard</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Dashboard</strong>
+                <span class="tooltip_text">summary of information and analysis</span>
+            </div>
+        </a>
+
+        <!-- Statistic -->
+        <a href="statistics.html" class="nav_button"><img
+                src="assets/icons/analytics_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Statistics</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Statistics</strong>
+                <span class="tooltip_text">all project statistics</span>
+            </div>
+        </a>
+
+        <!-- Profiles -->
+        <a href="profiles.html" class="nav_button current_page"><img
+                src="assets/icons/group_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Profiles</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Profiles</strong>
+                <span class="tooltip_text">view other profiles</span>
+            </div>
+        </a>
+
+        <!-- Settings -->
+        <a href="settings.html" class="nav_button"><img
+                src="assets/icons/settings_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg">
+            <span>Settings</span>
+            <div class="tooltip">
+                <strong class="tooltip_title">Settings</strong>
+                <span class="tooltip_text">edit preferences and Configuration</span>
+            </div>
+        </a>
+
+        <footer>
+            &copy; 2025 19 Juta. All rights reserved.
+        </footer>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== HEADER ===== -->
+        <header class="container">
+            <div class="title">Profiles</div>
+
+            <div class="search-container">
+                <div class="search">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bebebe' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E"
+                        alt="search">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+
+            <div class="my_profile">
+                <div class="my_name">Rei Ayanami</div>
+                <div class="my_role">Admin</div>
+                <div class="my_picture"><img src="assets/Rei-Ayanami.webp"></div>
+            </div>
+        </header>
+
+        <!-- ===== CONTENT ===== -->
+        <section class="profiles-container">
+
+            <!-- Team 1 Section -->
+            <div class="team-section">
+                <div class="team-header">
+                    <h2 class="team-title">Team 19 Juta</h2>
+                </div>
+
+                <div class="team-members">
+                    <!-- Member Card 1 -->
+                    <div class="member-card"
+                        data-bio="Putra is a dedicated Project Manager with a sharp focus on timeline management and team coordination. He thrives in high-pressure environments, ensuring that every milestone is met with precision and excellence. His leadership style is collaborative yet decisive, empowering team members to perform their best while keeping the project aligned with its strategic goals.\n\nBeyond his professional role, Putra is a strategic thinker who enjoys analyzing complex problems and finding efficient solutions. He values clear communication and builds strong relationships with stakeholders, believing that trust and transparency are the foundations of any successful project. His commitment to quality and continuous improvement makes him a reliable pillar of the team."
+                        data-email="putraterlambat@email.com" data-phone="082135790863"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/profiles/idc.jpg">
+                        </div>
+                        <h3 class="member-name">Putra</h3>
+                        <p class="member-role">Project Manager</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: putraterlambat@email.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 082135790863</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 2 -->
+                    <div class="member-card"
+                        data-bio="Farel is a skilled Backend Developer with a deep passion for building robust and scalable server-side architectures. He specializes in optimizing database performance and ensuring seamless API integrations, treating every line of code as a critical component of the larger system. His technical expertise allows him to troubleshoot complex issues effectively, ensuring the stability and security of applications.\n\nWhen he's not coding, Farel explores the latest trends in cloud computing and system design, always eager to adopt new technologies that drive efficiency. He enjoys the logic and structure of backend development, finding satisfaction in creating the invisible engines that power user experiences. His analytical mindset and attention to detail make him an invaluable asset to the technical team."
+                        data-email="parelngoding@email.com" data-phone="085197542673"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/profiles/idk.jpg">
+                        </div>
+                        <h3 class="member-name">Farel</h3>
+                        <p class="member-role">Backend Developer</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: parelngoding@email.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 085197542673</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 3 -->
+                    <div class="member-card"
+                        data-bio="Wana is a creative Content Manager who excels at crafting compelling narratives that resonate with diverse audiences. With a keen eye for detail and a strong grasp of digital marketing trends, she develops content strategies that not only engage users but also drive meaningful brand interactions. Her ability to blend creativity with data-driven insights ensures that every piece of content serves a strategic purpose.\n\nIn her approach to storytelling, Wana emphasizes authenticity and emotional connection, believing that great content should inspire and inform. She collaborates closely with designers and developers to ensure visual and textual harmony across all platforms. Her passion for communication and her dynamic approach to content creation consistently elevate the brand's voice and presence."
+                        data-email="wanangoding@email.com" data-phone="085197545479"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/profiles/idgf.jpg">
+                        </div>
+                        <h3 class="member-name">Wana</h3>
+                        <p class="member-role">Content Manager</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: wanangoding@email.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 085197545479</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="section-divider"></div>
+
+            <!-- Team 2 Section -->
+            <div class="team-section">
+                <div class="team-header">
+                    <h2 class="team-title">Team Software Engineer</h2>
+                </div>
+
+                <div class="team-members">
+                    <!-- Member Card 1 - Lain Iwakura -->
+                    <div class="member-card"
+                        data-bio="Lain Iwakura is a quiet and reserved junior high school student known for her introverted nature and limited social interaction. She lives a seemingly ordinary life with her family, spending most of her time at home and avoiding unnecessary attention. At school, she is often perceived as distant and emotionless, though observant and thoughtful.\n\nLain has a strong interest in computer systems and network technology, gradually developing advanced technical skills. She tends to work independently, preferring solitude and deep focus over collaboration. Despite her withdrawn personality, she shows a high level of self-awareness and curiosity about human connection, identity, and reality. Those who know her describe her as enigmatic, intelligent, and difficult to fully understand."
+                        data-email="lainiwakura@mail.com" data-phone="083283173382"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Lain-Iwakura.webp">
+                        </div>
+                        <h3 class="member-name">Lain Iwakura</h3>
+                        <p class="member-role">Programmer</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: lainiwakura@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 083283173382</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 2 - Kurisu Makise -->
+                    <div class="member-card"
+                        data-bio="Kurisu Makise is a young neuroscientist with an exceptional academic background, recognized for her intelligence and early achievements in scientific research. She is rational, articulate, and highly critical, often relying on logic and empirical evidence in both professional and personal discussions. Her demeanor is confident and composed, especially in intellectual environments.\n\nDespite her sharp wit and assertive communication style, Kurisu can be emotionally reserved and guarded. She struggles with vulnerability and tends to mask her insecurities behind sarcasm and professionalism. Privately, she is reflective and thoughtful, valuing truth, intellectual honesty, and meaningful dialogue."
+                        data-email="kurisu.makise@mail.com" data-phone="081234567890"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Kurisu-Makise.jpeg">
+                        </div>
+                        <h3 class="member-name">Kurisu Makise</h3>
+                        <p class="member-role">Researcher</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: kurisu.makise@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 081234567890</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="section-divider"></div>
+
+            <!-- Team 3 Section -->
+            <div class="team-section">
+                <div class="team-header">
+                    <h2 class="team-title">Team Human Resource</h2>
+                </div>
+
+                <div class="team-members">
+                    <!-- Member Card 1 - Tyler Durden -->
+                    <div class="member-card"
+                        data-bio="Tyler Durden is a charismatic and outspoken individual known for his rebellious attitude toward societal norms and materialism. He possesses strong leadership qualities, using persuasive language and confidence to influence others. Tyler is bold, fearless, and unapologetically confrontational, often challenging conventional ideas of identity and success.\n\nBeneath his confident exterior, Tyler operates on a rigid personal philosophy centered on freedom, self-destruction, and rejection of control. He believes personal growth comes through chaos and hardship rather than comfort. His actions and worldview make him highly influential yet deeply controversial."
+                        data-email="tyler.durden@mail.com" data-phone="082345678901"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Tyler-Durden.jpeg">
+                        </div>
+                        <h3 class="member-name">Tyler Durden</h3>
+                        <p class="member-role">Designer</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: tyler.durden@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 082345678901</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 2 - Travis Bickle -->
+                    <div class="member-card"
+                        data-bio="Travis Bickle is a socially isolated man who lives a solitary and highly routine-driven life. He is observant and introspective, often spending long periods reflecting on the moral decay he perceives around him. Travis struggles to connect with others and communicates in a blunt, awkward manner.\n\nInternally, Travis is driven by a rigid sense of justice and a desire for purpose. His thoughts are intense and obsessive, shaped by loneliness and emotional detachment. While disciplined and determined, he battles inner instability, making him unpredictable and deeply conflicted."
+                        data-email="travis.bickle@mail.com" data-phone="083456789012"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Travis-Bickle.jpeg">
+                        </div>
+                        <h3 class="member-name">Travis Bickle</h3>
+                        <p class="member-role">Security Analyst</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: travis.bickle@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 083456789012</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 3 - Rei Ayanami -->
+                    <div class="member-card"
+                        data-bio="Rei Ayanami is a stoic and efficient administrator. She manages operations with precision and reliability."
+                        data-email="rei.ayanami@mail.com" data-phone="084567890123"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Rei-Ayanami.webp">
+                        </div>
+                        <h3 class="member-name">Rei Ayanami</h3>
+                        <p class="member-role">Admin</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: rei.ayanami@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 084567890123</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member Card 4 - Chito -->
+                    <div class="member-card"
+                        data-bio="Chito is an inquisitive explorer, always documenting her findings and seeking new horizons."
+                        data-email="chito@mail.com" data-phone="085678901234"
+                        data-socials="Github, Instagram, Linkedin">
+                        <div class="member-avatar">
+                            <img src="assets/Chito.jpeg">
+                        </div>
+                        <h3 class="member-name">Chito</h3>
+                        <p class="member-role">Explorer</p>
+
+                        <div class="member-info">
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">: chito@mail.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">: 085678901234</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Social link</span>
+                                <span class="info-value social-links">
+                                    : <a href="#" class="social-link">Github</a>,
+                                    <a href="#" class="social-link">Instagram</a>,
+                                    <a href="#" class="social-link">Linkedin</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="section-divider"></div>
+
+            <!-- Add New Team Section -->
+            <div class="team-section">
+                <div class="team-header">
+                    <h2 class="team-title">New Team</h2>
+                    <button class="add-team-btn">
+                        <img src="assets/icons/add_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="add">
+                        <span>Add New Team</span>
+                    </button>
+                </div>
+
+                <div class="team-members empty">
+                    <p class="empty-message">No members yet</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MODAL POPUP ===== -->
+        <div class="modal-overlay" id="profileModal">
+            <div class="modal-content">
+                <div class="modal-profile-card">
+                    <button class="close-btn">&times;</button>
+
+                    <div class="modal-left">
+                        <div class="modal-photo">
+                            <img src="" alt="Profile Photo" id="modalImg">
+                        </div>
+                        <h2 class="modal-name" id="modalName">Name</h2>
+                        <p class="modal-role" id="modalRole">Role</p>
+                    </div>
+
+                    <div class="modal-right">
+                        <div class="modal-contact">
+                            <div class="modal-item">
+                                <h3 class="modal-item-label">Bio</h3>
+                                <div class="modal-item-value" id="modalBio"></div>
+                            </div>
+                            <div class="modal-item">
+                                <h3 class="modal-item-label">Email</h3>
+                                <p class="modal-item-value" id="modalEmail"></p>
+                            </div>
+                            <div class="modal-item">
+                                <h3 class="modal-item-label">Phone</h3>
+                                <p class="modal-item-value" id="modalPhone"></p>
+                            </div>
+                            <div class="modal-item">
+                                <h3 class="modal-item-label">Social link</h3>
+                                <p class="modal-item-value social-links" id="modalSocial"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+    <script src="profiles.js"></script>
+
+
+
+</body>
+
+</html>

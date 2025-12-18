@@ -1,0 +1,398 @@
+/* ===== STATISTICS PAGE STYLES ===== */
+
+/* Main Container */
+.stats-container {
+    display: flex;
+    gap: 24px;
+    height: calc(100vh - 140px);
+    width: clamp(320px, 90%, 1600px);
+    margin: auto;
+    margin-top: 32px;
+}
+
+/* ===== CHART SECTION (KARTU UTAMA) ===== */
+.chart-section {
+    flex: 1;
+    /* Replace background & border with variable */
+    background: var(--box);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+
+    border-radius: 16px;
+    padding: 24px;
+
+    /* Optional backdrop filter (usually for transparent dark mode) */
+    /* backdrop-filter: blur(10px); */
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    /* Soft shadow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Chart Controls */
+.chart-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Date Selector */
+.date-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.nav-arrow:hover {
+    background-color: var(--bg-sidebar-hover);
+    /* Variable */
+}
+
+.nav-arrow img {
+    width: 20px;
+    height: 20px;
+    /* Icon automatically adjusts to text color */
+    filter: brightness(0);
+    transition: filter 0.3s;
+}
+
+/* Invert icon in dark mode */
+body.dark-mode .nav-arrow img {
+    filter: invert(1);
+}
+
+.current-month {
+    color: var(--text-primary);
+    /* Variable */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.current-year {
+    color: var(--text-secondary);
+    /* Variable */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Time Range Selector */
+.time-range {
+    position: relative;
+}
+
+.range-select {
+    /* Background & Border Variable */
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+
+    border-radius: 8px;
+    padding: 8px 32px 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    font-family: "PublicSans", sans-serif;
+    transition: 0.2s;
+}
+
+.range-select:hover {
+    background: var(--bg-sidebar-hover);
+    /* Variable */
+}
+
+.time-range::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    /* Variable */
+    font-size: 10px;
+    pointer-events: none;
+}
+
+/* Chart Wrapper */
+.chart-wrapper {
+    flex: 1;
+    position: relative;
+    min-height: 350px;
+    margin-bottom: 20px;
+}
+
+#statisticsChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Chart Legend */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    /* Variable */
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.white {
+    /* This dot is for "This Month", color follows text primary */
+    background-color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    /* Add border to be visible in light mode */
+}
+
+.legend-dot.blue {
+    background-color: #3b82f6;
+    /* Keep Blue */
+}
+
+.legend-label {
+    color: var(--text-primary);
+    /* Variable */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===== ACTIVITY SIDEBAR (KARTU KANAN) ===== */
+.activity-sidebar {
+    width: 280px;
+    /* Replace background & border with variable */
+    background: var(--box);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+
+    border-radius: 16px;
+    padding: 20px;
+
+    /* backdrop-filter: blur(10px); */
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Activity Header */
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    /* Variable */
+}
+
+.activity-title {
+    color: var(--text-primary);
+    /* Variable */
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.activity-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.control-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    /* Add transparent border */
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.control-btn:hover {
+    background: var(--bg-sidebar-hover);
+    /* Variable */
+    border-color: var(--border-color);
+}
+
+.control-btn img {
+    width: 16px;
+    height: 16px;
+    /* Icon automatically adjusts to text color */
+    filter: brightness(0.2);
+    transition: filter 0.3s;
+}
+
+/* Invert control icon in dark mode */
+body.dark-mode .control-btn img {
+    filter: invert(0.8);
+}
+
+/* Activity Date */
+.activity-date {
+    color: var(--text-secondary);
+    /* Variable */
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+/* Activity List */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: calc(100vh - 300px);
+}
+
+/* Custom Scrollbar for Activity List */
+.activity-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.activity-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    /* Variable */
+    border-radius: 3px;
+}
+
+.activity-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+    /* Variable */
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 16px;
+
+    /* Replace Hardcoded Gradient with Variable */
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    /* Fine border */
+
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft Hover Effect */
+.activity-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.activity-item:hover::before {
+    opacity: 1;
+}
+
+.activity-item:hover {
+    border-color: var(--text-secondary);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.activity-dot {
+    width: 12px;
+    height: 12px;
+    /* Dot color follows secondary text */
+    background: var(--text-secondary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.activity-name {
+    color: var(--text-primary);
+    /* Variable */
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.2px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .activity-sidebar {
+        width: 100%;
+    }
+
+    .activity-list {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-controls {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .chart-wrapper {
+        min-height: 250px;
+    }
+
+    .chart-legend {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}

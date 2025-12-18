@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - DataViz</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="styeles.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        if (localStorage.getItem('sidebarState') === 'minisize') {
+            document.body.classList.add('preload-minisize');
+        }
+    </script>
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">
+            <img class="logo_img" src="assets/logo/Logo.svg">
+            <h1>DataViz</h1>
+        </div>
+        <button class="nav_button" id="sidebar_toggle">
+            <img src="assets/icons/keyboard_double_arrow_left_24dp_8F8F8F_FILL0_wght400_GRAD0_opsz24.svg" alt="resize">
+            <div class="tooltip"><span class="tooltip_text">resize navigation</span></div>
+        </button>
+        <div class="line horizontal"></div>
+        <a href="dashboard.html" class="nav_button"><img
+                src="assets/icons/dashboard_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg"><span>Dashboard</span>
+            <div class="tooltip"><strong class="tooltip_title">Dashboard</strong><span class="tooltip_text">summary of
+                    information</span></div>
+        </a>
+        <a href="statistics.html" class="nav_button"><img
+                src="assets/icons/analytics_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg"><span>Statistics</span>
+            <div class="tooltip"><strong class="tooltip_title">Statistics</strong><span class="tooltip_text">all project
+                    statistics</span></div>
+        </a>
+        <a href="profiles.html" class="nav_button"><img
+                src="assets/icons/group_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg"><span>Profiles</span>
+            <div class="tooltip"><strong class="tooltip_title">Profiles</strong><span class="tooltip_text">view other
+                    profiles</span></div>
+        </a>
+        <a href="settings.html" class="nav_button current_page"><img
+                src="assets/icons/settings_16dp_8F8F8F_FILL0_wght400_GRAD0_opsz20.svg"><span>Settings</span>
+            <div class="tooltip"><strong class="tooltip_title">Settings</strong><span class="tooltip_text">edit
+                    preferences</span></div>
+        </a>
+        <footer>&copy; 2025 19 Juta. All rights reserved.</footer>
+    </nav>
+
+    <main>
+        <header class="container">
+            <div class="title">Settings</div>
+            <div class="search-container">
+                <div class="search">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bebebe' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E"
+                        alt="search">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+            <div class="my_profile">
+                <div class="my_name">Rei Ayanami</div>
+                <div class="my_role">Admin</div>
+                <div class="my_picture"><img src="assets/Rei-Ayanami.webp"></div>
+            </div>
+        </header>
+
+        <section class="settings_content">
+            <div class="settings_tabs">
+                <button class="tab_btn active" data-tab="account">Account Setting</button>
+                <button class="tab_btn" data-tab="security">Login & Security</button>
+                <button class="tab_btn" data-tab="notifications">Notifications</button>
+                <button class="tab_btn" data-tab="interface">Interface</button>
+            </div>
+
+            <div class="settings_container">
+
+                <div class="tab_content active" id="account">
+                    <div class="settings_section">
+                        <div class="profile_picture_section">
+                            <label class="section_label">Your Profile Picture</label>
+                            <div class="profile_upload">
+                                <div class="upload_placeholder">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
+                                    <span>Upload your photo</span>
+                                </div>
+                                <input type="file" id="profile_upload" accept="image/*" hidden>
+                            </div>
+                        </div>
+                        <div class="form_grid">
+                            <div class="form_group"><label for="full_name">Full name</label><input type="text"
+                                    id="full_name" placeholder="Please enter your full name"></div>
+                            <div class="form_group"><label for="email">Email</label><input type="email" id="email"
+                                    placeholder="Please enter your email"></div>
+                            <div class="form_group"><label for="phone">Phone number</label>
+                                <div class="phone_input"><span class="country_code">+1</span><input type="tel"
+                                        id="phone" placeholder="Please enter your phone number"></div>
+                            </div>
+                            <div class="form_group"><label for="social_link">Social Link</label><input type="text"
+                                    id="social_link" placeholder="Enter social links (e.g. Github, Instagram)"></div>
+                        </div>
+                        <div class="form_group full_width"><label for="bio">Bio</label><textarea id="bio" rows="6"
+                                placeholder="Write your Bio here..."></textarea></div>
+                        <div class="form_actions"><button class="btn btn_primary">Update Profile</button></div>
+                    </div>
+                </div>
+
+                <div class="tab_content" id="security">
+                    <div class="settings_section">
+                        <h3 class="section_title">Password & Authentication</h3>
+                        <div class="form_grid">
+                            <div class="form_group"><label for="current_password">Current Password</label><input
+                                    type="password" id="current_password" placeholder="Enter current password"></div>
+                            <div class="form_group"><label for="new_password">New Password</label><input type="password"
+                                    id="new_password" placeholder="Enter new password"></div>
+                            <div class="form_group full_width"><label for="confirm_password">Confirm New
+                                    Password</label><input type="password" id="confirm_password"
+                                    placeholder="Confirm new password"></div>
+                        </div>
+                        <div class="security_option">
+                            <div class="option_info">
+                                <h4>Two-Factor Authentication</h4>
+                                <p>Add an extra layer of security</p>
+                            </div>
+                            <label class="toggle_switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                        <div class="form_actions"><button class="btn btn_primary">Update Password</button>
+                    </div>
+
+                    <br>
+
+                    <div class="settings_section">
+                        <h3 class="section_title">Logout</h3>
+                        <div class="logout_section">
+                            <div class="option_info">
+                                <h4>Sign Out</h4>
+                                <p>Sign out from your account on this device</p>
+                            </div>
+                            <button class="btn btn_danger" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+
+                <div class="tab_content" id="notifications">
+                    <div class="settings_section">
+                        <h3 class="section_title">Notification Preferences</h3>
+                        <div class="notification_options">
+                            <div class="notification_item">
+                                <div class="option_info">
+                                    <h4>Email Notifications</h4>
+                                    <p>Receive email updates</p>
+                                </div><label class="toggle_switch"><input type="checkbox" checked><span
+                                        class="slider"></span></label>
+                            </div>
+                            <div class="notification_item">
+                                <div class="option_info">
+                                    <h4>Push Notifications</h4>
+                                    <p>Receive push notifications</p>
+                                </div><label class="toggle_switch"><input type="checkbox" checked><span
+                                        class="slider"></span></label>
+                            </div>
+                            <div class="notification_item">
+                                <div class="option_info">
+                                    <h4>Task Reminders</h4>
+                                    <p>Get reminded about tasks</p>
+                                </div><label class="toggle_switch"><input type="checkbox" checked><span
+                                        class="slider"></span></label>
+                            </div>
+                            <div class="notification_item">
+                                <div class="option_info">
+                                    <h4>Weekly Summary</h4>
+                                    <p>Receive weekly summary</p>
+                                </div><label class="toggle_switch"><input type="checkbox"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="form_actions"><button class="btn btn_primary">Save Preferences</button></div>
+                    </div>
+                </div>
+
+                <div class="tab_content" id="interface">
+                    <h3 class="section_title">Interface Settings</h3>
+                    <div class="interface_options">
+                        <div class="interface_item">
+                            <div class="option_info">
+                                <h4>Dark Mode</h4>
+                                <p>Toggle dark mode interface (Toggle OFF for Light Mode)</p>
+                            </div>
+                            <label class="toggle_switch">
+                                <input type="checkbox" checked id="darkModeToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="settings.js"></script>
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+
+</body>
+
+</html>
